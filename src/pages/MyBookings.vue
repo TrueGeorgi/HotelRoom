@@ -1,11 +1,72 @@
 <template>
-  <div>
-    <h1>Welcome to My Bookings</h1>
+  <div v-if="userBookings.length > 0">
+    <ul>
+      <li v-for="booking in userBookings" :key="booking.name">
+        <div>
+          <img class="pic" :src="booking.data().img" alt="hotel pic">
+          <p>You have booked at the "{{ booking.data().name }}" for {{ booking.data().nights }} nights. You have paid {{
+            booking.data().totalPrice }} $ for your stay.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div v-else>
+    Such Empty
   </div>
 </template>
 
-<script setup>
+<script>
+import db from '../firebase';
+import { getDoc, getDocs, collection, query } from 'firebase/firestore';
+import { auth } from '../firebase';
 
+export default {
+  async created() {
+    this.allBooking = await this.getAllBookings();
+    console.log('1')
+    console.log(this.allBooking)
+    await this.getUserBookings();
+    console.log('2')
+    console.log(this.username)
+  },
+  data() {
+    return {
+      allBooking: [],
+      userBookings: [],
+      isLogged: auth.currentUser,
+    };
+  },
+  methods: {
+    async getAllBookings() {
+      const querySnap = await getDocs(query(collection(db, 'bookings')));
+      console.log('3')
+      return querySnap;
+    },
+    async getUserBookings() {
+      console.log('4');
+      for (const doc of this.allBooking.docs) {
+        const booking = doc.data();
+        console.log('5');
+        if (booking.user === this.username) {
+          this.userBookings.push(doc);
+        }
+      }
+    }
+
+  },
+  computed: {
+    username() {
+      if (this.isLogged) {
+        console.log('6')
+        return auth.currentUser.email;
+      }
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.pic {
+  width: 250px;
+}
+</style>

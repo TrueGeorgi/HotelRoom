@@ -4,10 +4,12 @@ import Hotels from '../pages/Hotels.vue'
 import ListProperty from '../pages/ListProperty.vue'
 import MyBookings from '../pages/MyBookings.vue'
 import LogIn from '../pages/LogIn.vue'
-import Jobs from '../pages/Jobs.vue'
 import ContactUs from '../pages/ContactUs.vue'
 import SingleHotel from '../pages/SingleHotel.vue'
 import NotFound from '../pages/NotFound.vue'
+import SuccessfulSubmition from '../pages/SuccessfulSubmition.vue'
+import Register from '../pages/Register.vue'
+import Profile from '../pages/Profile.vue'
 
 const routes = [
   {
@@ -38,17 +40,27 @@ const routes = [
   component: LogIn
 },
 {
-  path: '/jobs',
-  component: Jobs
-},
-{
   path: '/contact-us',
   component: ContactUs
 },
 { 
   path: '/:pathMatch(.*)*', 
   name: 'NotFound', 
-  component: NotFound },
+  component: NotFound 
+},
+{
+  path: '/successfulsubmition/:message',
+  name: 'successfulSubmition',
+  component: SuccessfulSubmition
+},
+{
+  path: '/register',
+  component: Register
+},
+{
+  path: '/profile',
+  component: Profile
+}
 ];
 
 const router = createRouter({

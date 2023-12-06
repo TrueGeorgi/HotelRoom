@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import { defineStore } from "pinia"
 
 export const useHotels = defineStore('registeredHotels', {
   state: () => ({
@@ -9,8 +9,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'London',
         country: 'UK',
         price: 134,
-        img: "src/assets/images/Radisson-Pink-Hotel-London.jpg",
-        id: 1
+        img: "https://www.hotel-frankenland.de/de/photos/crop__338945_t1__1920.jpg",
+        //id: 1
       },
       {
         name: 'Motel Two London',
@@ -19,8 +19,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'London',
         country: 'UK',
         price: 111,
-        img: "src/assets/images/Motel-Two-London.jpg",
-        id: 2
+        img: "https://all.accor.com/middleware/images/1385747632498/1681988911601/so-text-with-image-600x500-low.jpg",
+        //id: 2
       },
       {
         name: 'Milton London',
@@ -29,8 +29,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'London',
         country: 'UK',
         price: 194,
-        img: "src/assets/images/Milton-London.jpg",
-        id: 3
+        img: "https://assets.hrewards.com/assets/SHR_Hamburg_rooms_Standard_King_1_d5356d0cd0.jpg",
+        //id: 3
       },
       {
         name: 'London Marrionn Hotel',
@@ -39,8 +39,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'London',
         country: 'UK',
         price: 143,
-        img: "src/assets/images/London-Marrionn-Hotel.jpg",
-        id: 4
+        img: "https://static.leonardo-hotels.com/image/rcdbl_lhk_01_okt19_4000x2600_6fff045ef02ca4fd3b18bd7ec484c068_2048x1331_desktop_2.jpeg",
+        //id: 4
       },
       {
         name: 'Jupiter Hotel London Trafalgar',
@@ -49,8 +49,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'London',
         country: 'UK',
         price: 161,
-        img: "src/assets/images/Jupiter-Hotel-London-Trafalgar.jpg",
-        id: 5
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/87951681.jpg?k=518627dbfe45c1b118dd5f5c19558cfa8990f10f90a385a276167ccb137dd287&o=&hp=1",
+        //id: 5
       }, {
         name: 'Radisson Pink Hotel Paris',
         raiting: 6.5,
@@ -58,8 +58,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Paris',
         country: 'France',
         price: 184,
-        img: "src/assets/images/Radisson-Pink-Hotel-Paris.jpg",
-        id: 6
+        img: "https://www.welcome-hotels.com/site/assets/files/35059/welcome_hotel_marburg_lobby_2k.2560x1600.jpg",
+        //id: 6
       },
       {
         name: 'Motel Two Paris',
@@ -68,8 +68,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Paris',
         country: 'France',
         price: 111,
-        img: "src/assets/images/Motel-Two-Paris.jpg",
-        id: 7
+        img: "https://static.leonardo-hotels.com/image/leonardohotelbucharestcitycenter_room_comfortdouble2_2022_4000x2600_7e18f254bc75491965d36cc312e8111f_1200x780_mobile_3.jpeg",
+        //id: 7
       },
       {
         name: 'Milton Paris',
@@ -78,8 +78,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Paris',
         country: 'France',
         price: 194,
-        img: "src/assets/images/Milton-Paris.jpg",
-        id: 8
+        img: "https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg",
+        //id: 8
       },
       {
         name: 'Paris Marrionn Hotel',
@@ -88,8 +88,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Paris',
         country: 'France',
         price: 143,
-        img: "src/assets/images/Paris-Marrionn-Hotel.jpg",
-        id: 9
+        img: "https://www.newworldhotels.com/wp-content/uploads/2014/05/Mobile-NWHBR-Exterior.jpg",
+        //id: 9
       },
       {
         name: 'Jupiter Hotel Paris',
@@ -98,8 +98,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Paris',
         country: 'France',
         price: 161,
-        img: "src/assets/images/Jupiter-Hotel-Paris.jpg",
-        id: 10
+        img: "https://www.ahstatic.com/photos/c096_ho_00_p_1024x768.jpg",
+        //id: 10
       },
       {
         name: 'Radisson Pink Hotel Berlin',
@@ -108,8 +108,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Berlin',
         country: 'Germany',
         price: 134,
-        img: "src/assets/images/Radisson-Pink-Hotel-Berlin.jpg",
-        id: 11
+        img: "https://img.freepik.com/vektoren-kostenlos/flache-hotelfassade-hintergrund_23-2148157379.jpg?w=2000",
+        //id: 11
       },
       {
         name: 'Motel Two Berlin',
@@ -118,8 +118,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Berlin',
         country: 'Germany',
         price: 111,
-        img: "src/assets/images/Motel-Two-Berlin.jpg",
-        id: 12
+        img: "https://mauritius-ht.de/wp-content/uploads/2021/05/Hotel_Zimmer_Mauritius.jpg",
+        //id: 12
       },
       {
         name: 'Milton Berlin',
@@ -128,8 +128,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Berlin',
         country: 'Germany',
         price: 194,
-        img: "src/assets/images/Milton-Berlin.jpg",
-        id: 13
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqvvNGkglFaJ1eGiEmNdyX5YVrgeQ2dhyJv5BFmb5JuZy3HEMEvRcDwKFoXCuuOn8KOpk&usqp=CAU",
+        //id: 13
       },
       {
         name: 'Berlin Marrionn Hotel',
@@ -138,8 +138,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Berlin',
         country: 'Germany',
         price: 143,
-        img: "src/assets/images/Berlin-Marrionn-Hotel.jpg",
-        id: 14
+        img: "https://cdn5.site-media.eu/images/1200x630/6054406/CHDMoog_Maerz2012_Zuschnitt_Business.jpg",
+        //id: 14
       },
       {
         name: 'Jupiter Hotel Berlin',
@@ -148,8 +148,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Berlin',
         country: 'Germany',
         price: 161,
-        img: "src/assets/images/Jupiter-Hotel-Berlin.jpg",
-        id: 15
+        img: "https://cf.bstatic.com/xdata/images/hotel/max500/461646933.jpg?k=b90e3488ca35d4fa1b0f69027df76d21a63c0523aa5fc4fd60f27912f7ca8ec3&o=",
+        //id: 15
       }, {
         name: 'Radisson Pink Hotel Sofia',
         raiting: 8.0,
@@ -157,8 +157,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Sofia',
         country: 'Bulgaria',
         price: 134,
-        img: "src/assets/images/Radisson-Pink-Hotel-Sofia.jpg",
-        id: 16
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZNf9bhqTMHGdNcb3WqPaqgmfQc9NmA1oBYg&usqp=CAU",
+        //id: 16
       },
       {
         name: 'Motel Two Sofia',
@@ -167,8 +167,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Sofia',
         country: 'Bulgaria',
         price: 111,
-        img: "src/assets/images/Motel-Two-Sofia.jpg",
-        id: 17
+        img: "https://lindnerhotels.com/fileadmin/_processed_/3/7/csm_HHNJN_2_Twin_Beds_eba9961492.jpg",
+        //id: 17
       },
       {
         name: 'Milton Sofia',
@@ -177,8 +177,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Sofia',
         country: 'Bulgaria',
         price: 194,
-        img: "src/assets/images/Milton-Sofia.jpg",
-        id: 18
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc9bj8sf_9Ho4sBimEw-gOvDwNjrBcDZiSw&usqp=CAU",
+        //id: 18
       },
       {
         name: 'Sofia Marrionn Hotel',
@@ -187,8 +187,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Sofia',
         country: 'Bulgaria',
         price: 143,
-        img: "src/assets/images/Sofia-Marrionn-Hotel.jpg",
-        id: 19
+        img: "https://amazingarchitecture.com/storage/4192/hotel-interior-design-zikzak-architects.jpg",
+        //id: 19
       },
       {
         name: 'Jupiter Hotel Sofia',
@@ -197,17 +197,18 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Sofia',
         country: 'Bulgaria',
         price: 161,
-        img: "src/assets/images/Jupiter-Hotel-Sofia.jpg",
-        id: 20
-      }, {
+        img: "https://assets.langhamhotels.com/is/image/langhamhotelsstage/tlhkg-langham-hong-kongopti:Medium?wid=675&hei=380",
+        //id: 20
+      }, 
+      {
         name: 'Radisson Pink Hotel Athens',
         raiting: 8.0,
         votes: 1031,
         city: 'Athens',
         country: 'Greece',
         price: 134,
-        img: "src/assets/images/Radisson-Pink-Hotel-Athens.jpg",
-        id: 21
+        img: "https://www.hotel-juwel.de/wp-content/uploads/2023/01/hotel-bad-fuessing-m.jpg",
+        //id: 21
       },
       {
         name: 'Motel Two Athens',
@@ -216,8 +217,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Athens',
         country: 'Greece',
         price: 111,
-        img: "src/assets/images/Motel-Two-Athens.jpg",
-        id: 22
+        img: "https://www.maritim.de/fileadmin/_processed_/4/2/csm_ING_047_Superior_8e76aeb6d2.jpg",
+        //id: 22
       },
       {
         name: 'Milton Athens',
@@ -226,8 +227,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Athens',
         country: 'Greece',
         price: 194,
-        img: "src/assets/images/Milton-Athens.jpg",
-        id: 23
+        img: "https://www.the-weinmeister.com/wp-content/uploads/2023/02/medium-room_startseite_mobile-uai-1024x520.jpg",
+        //id: 23
       },
       {
         name: 'Athens Marrionn Hotel',
@@ -236,8 +237,8 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Athens',
         country: 'Greece',
         price: 143,
-        img: "src/assets/images/Athens-Marrionn-Hotel.jpg",
-        id: 24
+        img: "https://sitecore-cd-imgr.shangri-la.com/MediaFiles/A/F/0/%7BAF092C0F-E7AD-4B8D-A450-ABEF73413B1E%7D2023_THKL_Homepage-Room.jpg?width=750&height=752&mode=crop&quality=100&scale=both",
+        //id: 24
       },
       {
         name: 'Jupiter Hotel Athens',
@@ -246,13 +247,44 @@ export const useHotels = defineStore('registeredHotels', {
         city: 'Athens',
         country: 'Greece',
         price: 161,
-        img: "src/assets/images/Jupiter-Hotel-Athens.jpg",
-        id: 25
+        img: "https://s7d1.scene7.com/is/image/marriotts7prod/mc-brudt-junior-suite-6-15072:Classic-Hor?wid=1336&fit=constrain",
+        //id: 25
       }],
   }),
   getters: {
     numberOfRegisteredHotels(state) {
       return state.allHotels.length;
+    },
+  },
+
+  actions: {
+    isExisting(hotelName) {
+      let alreadyExist = false
+
+      this.allHotels.forEach((hotel) => {
+        if (hotel.name === hotelName) {
+          alreadyExist = true;
+        }
+      })
+
+      return alreadyExist
+    },
+    addHotelsFromFirebase(hotelsArray) {
+      hotelsArray.forEach((firebaseHotel) => {
+        if(!this.isExisting(firebaseHotel.data().name)) {
+          const newHotel = {
+            name: firebaseHotel.data().name,
+            raiting: firebaseHotel.data().raiting,
+            votes: firebaseHotel.data().votes,
+            city: firebaseHotel.data().city,
+            country: firebaseHotel.data().country,
+            price: firebaseHotel.data().price,
+            img: firebaseHotel.data().img,
+            facilities: firebaseHotel.data().facilities
+          }
+          this.allHotels.push(newHotel)
+        }
+      })
     }
   },
-});
+  });

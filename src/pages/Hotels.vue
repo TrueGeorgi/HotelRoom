@@ -1,41 +1,33 @@
 <template>
   <h4>Hotels: {{ hotels.numberOfRegisteredHotels }}</h4>
-  <div>
-    <div v-for="hotel in hotels.allHotels" class="main-container">
-      <div class="main-container">
-        <div class="hotel-pic">
-          <img :src="hotel.img" :alt="hotel.name">
-        </div>
-        <div class="general-info general-info-container">
-          <div class="name-raiting general-info-container">
-            <div>{{ hotel.name }}</div>
-            <div>Raiting:{{ hotel.raiting }} from {{ hotel.votes }} votes</div>
-          </div>
-          <div class="hotel-info general-info-container">
-            <div>Location: {{ hotel.city }}, {{ hotel.country }}</div>
-            <div>avilable rooms: YES</div>
-          </div>
-          <div class="price-book general-info-container">
-            <div>Price: {{ hotel.price }}$</div>
-            <button class="book-button" @click="goToHotelPage">Book</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div v-for="hotel in hotels.allHotels" class="main-container">
+    <SingleHotelBlock :singleHotel="hotel" />
   </div>
 </template>
 
 <script>
 import { useHotels } from '../store/hotels.js';
+import db from '../firebase';
+import { query, getDocs, collection } from 'firebase/firestore'
+import SingleHotelBlock from '../components/SingleHotelBlock.vue';
 
 export default {
   setup() {
     const hotels = useHotels();
     return { hotels };
   },
-  mounted() {
-    console.log(this.hotels.currentHotels);
-    console.log(this.hotels.allHotels);
+  components: {
+    SingleHotelBlock
+  },
+  async created() {
+    const firebaseHotels = await this.getFirebaseHotels();
+    this.hotels.addHotelsFromFirebase(firebaseHotels);
+  },
+  methods: {
+    async getFirebaseHotels() {
+      const querySnap = await getDocs(query(collection(db, 'hotels')))
+      return querySnap
+    }
   }
 }
 </script>
@@ -80,5 +72,3 @@ img {
   margin-bottom: 20px;
 }
 </style>
-display: grid;
-grid-template-columns: 550px 550px;

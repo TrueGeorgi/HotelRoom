@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Welcome to Contact Us</h1>
+    <p>Email: georgi.iliev9191@gmail.com</p>
   </div>
 </template>
 

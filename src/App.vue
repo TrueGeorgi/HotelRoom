@@ -2,7 +2,9 @@
   <header>
     <Navbar />
   </header>
+
   <router-view />
+
   <footer>
     <Footer />
   </footer>

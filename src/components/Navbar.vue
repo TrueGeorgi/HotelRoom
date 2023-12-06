@@ -6,9 +6,34 @@
       </router-link>
     </p>
     <ul>
-      <li v-for="page in pages">
-        <router-link :to="page.link">
-          {{ page.text }}
+      <li>
+        <router-link to="/hotels">
+          Hotels
+        </router-link>
+      </li>
+      <li v-if="loggedUser">
+        <router-link to="/my-bookings">
+          My Bookings
+        </router-link>
+      </li>
+      <li v-if="loggedUser">
+        <router-link to="/list-property">
+          List Property
+        </router-link>
+      </li>
+      <li v-if="loggedUser">
+        <router-link to="/profile">
+          Profile
+        </router-link>
+      </li>
+      <li v-if="!loggedUser">
+        <router-link to="/log-in">
+          Log In
+        </router-link>
+      </li>
+      <li v-if="!loggedUser">
+        <router-link to="/register">
+          Register
         </router-link>
       </li>
     </ul>
@@ -16,29 +41,33 @@
 </template>
 
 <script>
+import { auth } from '../firebase';
+
 export default {
   data() {
     return {
-      pages: [{
-        link: '/',
-        text: 'Home'
-      },
-      {
-        link: '/hotels',
-        text: 'Hotels'
-      },
-      {
-        link: '/my-bookings',
-        text: 'My Bookings'
-      },
-      {
-        link: '/log-in',
-        text: 'Log In'
-      },]
+      isLoggedAccount: false,
+      loggedUser: null
     }
   },
-  methods: {
+  watch: {
+    loggedUser(newVal) {
+
+      if (newVal) {
+
+        console.log('Is logged')
+      } else {
+
+        console.log('Is not logged')
+      }
+    }
+  },
+  created() {
+    auth.onAuthStateChanged((user) => {
+      this.loggedUser = user;
+    })
   }
+
 }
 </script>
 

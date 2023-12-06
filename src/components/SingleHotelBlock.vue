@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     goToHotelPage() {
-      this.$router.push({ name: 'hotel', params: { id: this.singleHotel.id } });
+      this.$router.push({ name: 'hotel', params: { id: this.singleHotel.name } });
     }
   }
 }

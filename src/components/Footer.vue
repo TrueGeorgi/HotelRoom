@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <div v-for="page in pages">
-      <router-link :to="page.link">
-        {{ page.text }}
+    <div>
+      <router-link to="/contact-us">
+        Contact Us
       </router-link>
     </div>
   </nav>
@@ -12,19 +12,7 @@
 export default {
   data() {
     return {
-      pages: [
-        {
-          link: '/list-property',
-          text: 'List Property'
-        },
-        {
-          link: '/jobs',
-          text: 'Jobs'
-        },
-        {
-          link: '/contact-us',
-          text: 'Contact Us'
-        },]
+
     }
   }
 }
