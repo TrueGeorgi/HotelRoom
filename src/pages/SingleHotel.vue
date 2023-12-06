@@ -21,7 +21,7 @@
 <script>
 import { useHotels } from '../store/hotels'
 import db from '../firebase'
-import { query, getDocs, collection, setDoc, doc } from 'firebase/firestore'
+import { query, getDocs, collection, setDoc, doc, getDoc } from 'firebase/firestore'
 import SelectDates from '../components/SelectDates.vue'
 import { auth } from '../firebase'
 
@@ -84,10 +84,22 @@ export default {
     async bookToProfile() {
       const user = auth.currentUser;
       if (user) {
-        console.log(this.priceObject)
-        await setDoc(doc(db, 'bookings', this.hotel.name), this.priceObject)
-        console.log('booked')
+        const bookingName = `${this.hotel.name} - ${this.priceObject.user}`
+        console.log(bookingName)
+        const bookingExist = await this.checkIfBookingExists(bookingName)
+        if (bookingExist) {
+          console.log(this.checkIfBookingExists(bookingName))
+          alert('You already have a booking for this hotel')
+        } else {
+          await setDoc(doc(db, 'bookings', bookingName), this.priceObject)
+          this.$router.push('/successfulsubmition/Your booking was successful');
+        }
       }
+    },
+    async checkIfBookingExists(bookingName) {
+      const docRef = doc(db, 'yourCollection', bookingName);
+      const docSnap = await getDoc(docRef);
+      return docSnap.exists();
     }
   }
 }

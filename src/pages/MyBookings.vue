@@ -4,9 +4,11 @@
       <li v-for="booking in userBookings" :key="booking.name">
         <div>
           <img class="pic" :src="booking.data().img" alt="hotel pic">
-          <p>You have booked at the "{{ booking.data().name }}" for {{ booking.data().nights }} nights. You have paid {{
+          <p>You have booked at the "{{ booking.data().name }}" for {{ booking.data().nights }} nights. You have to pay {{
             booking.data().totalPrice }} $ for your stay.</p>
         </div>
+        <button @click="deleteBooking(booking.id)">Delete this booking</button>
+
       </li>
     </ul>
   </div>
@@ -17,7 +19,7 @@
 
 <script>
 import db from '../firebase';
-import { getDoc, getDocs, collection, query } from 'firebase/firestore';
+import { getDocs, collection, query, deleteDoc, doc } from 'firebase/firestore';
 import { auth } from '../firebase';
 
 export default {
@@ -34,6 +36,7 @@ export default {
       allBooking: [],
       userBookings: [],
       isLogged: auth.currentUser,
+      raiting: null,
     };
   },
   methods: {
@@ -51,8 +54,12 @@ export default {
           this.userBookings.push(doc);
         }
       }
+    },
+    async deleteBooking(bookingName) {
+      await deleteDoc(doc(db, 'bookings', bookingName))
+      console.log(bookingName)
+      this.userBookings.splice(bookingName, 1)
     }
-
   },
   computed: {
     username() {

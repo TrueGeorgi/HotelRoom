@@ -55,7 +55,7 @@ export default {
           this.$router.push(`/successfulsubmition/Welcome ${auth.currentUser.displayName}`);
         })
         .catch((error) => {
-          console.log(error.message)
+          alert('There no account with this E-mail address')
         })
     }
   }
