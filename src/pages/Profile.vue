@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>Welcome {{ username }}</p>
     <p>You owe {{ moneyOwed }}$</p>
     <button @click="loggOut">Sing out</button>
   </div>
@@ -20,10 +21,12 @@ export default {
         this.moneyOwed += doc.data().totalPrice
       }
     }
+    this.username = auth.currentUser.displayName
   },
   data() {
     return {
       moneyOwed: 0,
+      username: ''
     }
   },
   methods: {

@@ -1,6 +1,29 @@
 <template>
-  <h4>Hotels: {{ hotels.numberOfRegisteredHotels }}</h4>
-  <div v-for="hotel in hotels.allHotels" class="main-container">
+  <h4>Hotels: {{ numberOfRegisteredHotels }}</h4>
+  <div>
+    <label for="sortedCountry">Sort by country</label>
+    <select id="sortedCountry" v-model="sortedCountry">
+      <option disabled>
+        Select
+      </option>
+      <option v-for="country in hotels.possibleCountries" :value="country.name">
+        {{ country.name }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="sortedCity">Sort by city</label>
+    <select id="sortedCity" v-model="sortedCity">
+      <option disabled>
+        Select
+      </option>
+      <option v-for="city in filteredCities()" :value="city">
+        {{ city }}
+      </option>
+    </select>
+  </div>
+  <button v-if="isSorted" @click="showAllHotels()">Show all hotels</button>
+  <div v-for="hotel in this.sortedHotels" class="main-container">
     <SingleHotelBlock :singleHotel="hotel" />
   </div>
 </template>
@@ -16,6 +39,13 @@ export default {
     const hotels = useHotels();
     return { hotels };
   },
+  data() {
+    return {
+      sortedCountry: '',
+      sortedCity: '',
+      isSorted: false
+    }
+  },
   components: {
     SingleHotelBlock
   },
@@ -27,7 +57,60 @@ export default {
     async getFirebaseHotels() {
       const querySnap = await getDocs(query(collection(db, 'hotels')))
       return querySnap
+    },
+    filteredCities() {
+      if (this.sortedCountry) {
+        const countryObject = this.hotels.possibleCountries.find(
+          country => country.name === this.sortedCountry
+        );
+        return countryObject.cities;
+      }
+    },
+    showAllHotels() {
+      this.sortedCountry = '';
+      this.sortedCity = '';
+      this.isSorted = false;
     }
+  },
+  computed: {
+    sortedHotels() {
+      let sortedHotels = []
+      let sortedHotelsByCity = []
+      if (this.sortedCountry) {
+        this.hotels.allHotels.forEach((hotel) => {
+          if (hotel.country === this.sortedCountry) {
+            sortedHotels.push(hotel)
+          }
+        })
+        this.isSorted = true
+      } else {
+        return this.hotels.allHotels
+      }
+
+      if (this.sortedCity) {
+        sortedHotels.forEach((hotel) => {
+          if (hotel.city === this.sortedCity) {
+            sortedHotelsByCity.push(hotel)
+          }
+        })
+        this.isSorted = true
+        return sortedHotelsByCity
+      } else {
+        this.isSorted = true
+        return sortedHotels
+      }
+    },
+    numberOfRegisteredHotels() {
+      return this.sortedHotels.length
+    }
+  },
+  watch: {
+    sortedCountry() {
+      const selectedCountryCities = this.filteredCities() || [];
+      if (!selectedCountryCities.includes(this.sortedCountry)) {
+        this.sortedCity = '';
+      }
+    },
   }
 }
 </script>

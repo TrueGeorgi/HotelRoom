@@ -10,7 +10,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'UK',
         price: 134,
         img: "https://www.hotel-frankenland.de/de/photos/crop__338945_t1__1920.jpg",
-        //id: 1
+        facilities: ['Free WiFi', 'Private Parking']
       },
       {
         name: 'Motel Two London',
@@ -20,7 +20,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'UK',
         price: 111,
         img: "https://all.accor.com/middleware/images/1385747632498/1681988911601/so-text-with-image-600x500-low.jpg",
-        //id: 2
+        facilities: ['Free WiFi', 'Lift', 'Non-smoking rooms']
       },
       {
         name: 'Milton London',
@@ -30,7 +30,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'UK',
         price: 194,
         img: "https://assets.hrewards.com/assets/SHR_Hamburg_rooms_Standard_King_1_d5356d0cd0.jpg",
-        //id: 3
+        facilities: ['Lift']
       },
       {
         name: 'London Marrionn Hotel',
@@ -40,7 +40,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'UK',
         price: 143,
         img: "https://static.leonardo-hotels.com/image/rcdbl_lhk_01_okt19_4000x2600_6fff045ef02ca4fd3b18bd7ec484c068_2048x1331_desktop_2.jpeg",
-        //id: 4
+        facilities: ['Complimentary breakfast', 'Lift', 'Non-smoking rooms']
       },
       {
         name: 'Jupiter Hotel London Trafalgar',
@@ -50,7 +50,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'UK',
         price: 161,
         img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/87951681.jpg?k=518627dbfe45c1b118dd5f5c19558cfa8990f10f90a385a276167ccb137dd287&o=&hp=1",
-        //id: 5
+        facilities: ['Free WiFi', 'Private Parking']
       }, {
         name: 'Radisson Pink Hotel Paris',
         raiting: 6.5,
@@ -59,7 +59,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'France',
         price: 184,
         img: "https://www.welcome-hotels.com/site/assets/files/35059/welcome_hotel_marburg_lobby_2k.2560x1600.jpg",
-        //id: 6
+        facilities: ['Free WiFi', 'Non-smoking rooms']
       },
       {
         name: 'Motel Two Paris',
@@ -69,7 +69,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'France',
         price: 111,
         img: "https://static.leonardo-hotels.com/image/leonardohotelbucharestcitycenter_room_comfortdouble2_2022_4000x2600_7e18f254bc75491965d36cc312e8111f_1200x780_mobile_3.jpeg",
-        //id: 7
+        facilities: ['Free WiFi', 'Lift','Private Parking']
       },
       {
         name: 'Milton Paris',
@@ -79,7 +79,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'France',
         price: 194,
         img: "https://www.usatoday.com/gcdn/-mm-/05b227ad5b8ad4e9dcb53af4f31d7fbdb7fa901b/c=0-64-2119-1259/local/-/media/USATODAY/USATODAY/2014/08/13/1407953244000-177513283.jpg",
-        //id: 8
+        facilities: ['Complimentary breakfast', 'Lift']
       },
       {
         name: 'Paris Marrionn Hotel',
@@ -89,7 +89,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'France',
         price: 143,
         img: "https://www.newworldhotels.com/wp-content/uploads/2014/05/Mobile-NWHBR-Exterior.jpg",
-        //id: 9
+        facilities: ['Free WiFi', 'Private Parking', 'Non-smoking rooms']
       },
       {
         name: 'Jupiter Hotel Paris',
@@ -99,7 +99,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'France',
         price: 161,
         img: "https://www.ahstatic.com/photos/c096_ho_00_p_1024x768.jpg",
-        //id: 10
+        facilities: ['Free WiFi', 'Complimentary breakfast']
       },
       {
         name: 'Radisson Pink Hotel Berlin',
@@ -109,7 +109,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Germany',
         price: 134,
         img: "https://img.freepik.com/vektoren-kostenlos/flache-hotelfassade-hintergrund_23-2148157379.jpg?w=2000",
-        //id: 11
+        facilities: ['Complimentary breakfast', 'Private Parking']
       },
       {
         name: 'Motel Two Berlin',
@@ -119,7 +119,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Germany',
         price: 111,
         img: "https://mauritius-ht.de/wp-content/uploads/2021/05/Hotel_Zimmer_Mauritius.jpg",
-        //id: 12
+        facilities: ['Free WiFi', 'Lift', 'Non-smoking rooms']
       },
       {
         name: 'Milton Berlin',
@@ -129,7 +129,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Germany',
         price: 194,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqvvNGkglFaJ1eGiEmNdyX5YVrgeQ2dhyJv5BFmb5JuZy3HEMEvRcDwKFoXCuuOn8KOpk&usqp=CAU",
-        //id: 13
+        facilities: ['Free WiFi', 'Complimentary breakfast']
       },
       {
         name: 'Berlin Marrionn Hotel',
@@ -139,7 +139,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Germany',
         price: 143,
         img: "https://cdn5.site-media.eu/images/1200x630/6054406/CHDMoog_Maerz2012_Zuschnitt_Business.jpg",
-        //id: 14
+        facilities: ['Private Parking', 'Lift']
       },
       {
         name: 'Jupiter Hotel Berlin',
@@ -149,7 +149,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Germany',
         price: 161,
         img: "https://cf.bstatic.com/xdata/images/hotel/max500/461646933.jpg?k=b90e3488ca35d4fa1b0f69027df76d21a63c0523aa5fc4fd60f27912f7ca8ec3&o=",
-        //id: 15
+        facilities: ['Complimentary breakfast', 'Lift']
       }, {
         name: 'Radisson Pink Hotel Sofia',
         raiting: 8.0,
@@ -158,7 +158,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Bulgaria',
         price: 134,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZNf9bhqTMHGdNcb3WqPaqgmfQc9NmA1oBYg&usqp=CAU",
-        //id: 16
+        facilities: ['Free WiFi', 'Non-smoking rooms']
       },
       {
         name: 'Motel Two Sofia',
@@ -168,7 +168,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Bulgaria',
         price: 111,
         img: "https://lindnerhotels.com/fileadmin/_processed_/3/7/csm_HHNJN_2_Twin_Beds_eba9961492.jpg",
-        //id: 17
+        facilities: ['Free WiFi', 'Lift']
       },
       {
         name: 'Milton Sofia',
@@ -178,7 +178,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Bulgaria',
         price: 194,
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYc9bj8sf_9Ho4sBimEw-gOvDwNjrBcDZiSw&usqp=CAU",
-        //id: 18
+        facilities: ['Free WiFi', 'Complimentary breakfast']
       },
       {
         name: 'Sofia Marrionn Hotel',
@@ -188,7 +188,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Bulgaria',
         price: 143,
         img: "https://amazingarchitecture.com/storage/4192/hotel-interior-design-zikzak-architects.jpg",
-        //id: 19
+        facilities: ['Free WiFi', 'Lift', 'Non-smoking rooms']
       },
       {
         name: 'Jupiter Hotel Sofia',
@@ -198,7 +198,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Bulgaria',
         price: 161,
         img: "https://assets.langhamhotels.com/is/image/langhamhotelsstage/tlhkg-langham-hong-kongopti:Medium?wid=675&hei=380",
-        //id: 20
+        facilities: ['Free WiFi', 'Private Parking']
       }, 
       {
         name: 'Radisson Pink Hotel Athens',
@@ -208,7 +208,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Greece',
         price: 134,
         img: "https://www.hotel-juwel.de/wp-content/uploads/2023/01/hotel-bad-fuessing-m.jpg",
-        //id: 21
+        facilities: ['Complimentary breakfast']
       },
       {
         name: 'Motel Two Athens',
@@ -218,7 +218,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Greece',
         price: 111,
         img: "https://www.maritim.de/fileadmin/_processed_/4/2/csm_ING_047_Superior_8e76aeb6d2.jpg",
-        //id: 22
+        facilities: ['Free WiFi', 'Private Parking']
       },
       {
         name: 'Milton Athens',
@@ -228,7 +228,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Greece',
         price: 194,
         img: "https://www.the-weinmeister.com/wp-content/uploads/2023/02/medium-room_startseite_mobile-uai-1024x520.jpg",
-        //id: 23
+        facilities: ['Private Parking', 'Lift', 'Non-smoking rooms']
       },
       {
         name: 'Athens Marrionn Hotel',
@@ -238,7 +238,7 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Greece',
         price: 143,
         img: "https://sitecore-cd-imgr.shangri-la.com/MediaFiles/A/F/0/%7BAF092C0F-E7AD-4B8D-A450-ABEF73413B1E%7D2023_THKL_Homepage-Room.jpg?width=750&height=752&mode=crop&quality=100&scale=both",
-        //id: 24
+        facilities: ['Free WiFi', 'Complimentary breakfast']
       },
       {
         name: 'Jupiter Hotel Athens',
@@ -248,8 +248,28 @@ export const useHotels = defineStore('registeredHotels', {
         country: 'Greece',
         price: 161,
         img: "https://s7d1.scene7.com/is/image/marriotts7prod/mc-brudt-junior-suite-6-15072:Classic-Hor?wid=1336&fit=constrain",
-        //id: 25
+        facilities: ['Private Parking']
       }],
+    possibleCountries: [{
+        name: 'Germany',
+        cities: ['Berlin', 'Munich', 'Cologne']
+      },
+      {
+        name: 'France',
+        cities: ['Paris', 'Strasburg', 'Lyon']
+      },
+      {
+        name: 'UK',
+        cities: ['London', 'Edinburgh', 'Manchester']
+      },
+      {
+        name: 'Greece',
+        cities: ['Athens', 'Rhodos', 'Kavala']
+      },
+      {
+        name: 'Bulgaria',
+        cities: ['Sofia', 'Ruse', 'Plovdiv']
+    },],
   }),
   getters: {
     numberOfRegisteredHotels(state) {

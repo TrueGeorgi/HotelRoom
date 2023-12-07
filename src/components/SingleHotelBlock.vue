@@ -10,7 +10,11 @@
       </div>
       <div class="hotel-info general-info-container">
         <div>Location: {{ singleHotel.city }}, {{ singleHotel.country }}</div>
-        <div>avilable rooms: YES</div>
+        <div>
+          <div v-for="facility in singleHotel.facilities">
+            {{ facility }}
+          </div>
+        </div>
       </div>
       <div class="price-book general-info-container">
         <div>Price: {{ singleHotel.price }}$</div>
