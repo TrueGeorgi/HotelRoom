@@ -57,7 +57,7 @@ export default {
         .catch((error) => {
           alert('The E-mail address or the password were not correct. Try again')
         })
-    }
+    },
   }
 }
 </script>

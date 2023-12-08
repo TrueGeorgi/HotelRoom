@@ -1,35 +1,61 @@
-# Starter project for Vue + JS
+# Hotel Room
 
-This project is created to help students from [VueJS - ноември 2023](https://softuni.bg/trainings/4320/vuejs-november-2023) create quickly new projects for SPA with Vue and JavaScript (no TS support). It's completely for learning purposes.
+A hotel booking website created as a final Project for the Vue.JS 3 course by https://softuni.bg/
 
-This project has:
-    - ESLint configurated via [@antfu/eslint-config](https://github.com/antfu/eslint-config)
-    - PicoCSS installed via CDN
-    - Reset CSS
-    - VS Code extentions recommendations and settings
+## Introduction
 
+A hotel bookings website, where every registered user can :
+1: See all the hotels on the website and sort them by country and city
+2: Book a hotel for a certain period of time
+3: List a new hotel on the platform
+4: Delete booked hotels
+5: See the total amount of all the bookings
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+If a user is not registered, he can only see the hotels, listed on the platform
 
-## Recommended IDE Setup
+## Project Structure
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+├── src/                    # Source code
+│   ├── assets/             # Static assets
+│   ├── components/         # Vue components
+│   ├── firebase/           # Firebase integration
+│   ├── pages/              # Vue views (pages)
+│   ├── router/             # Vue router configuration
+│   ├── store/              # Pinia store modules
+│   ├── styles/             # styles (given with the main package at the start of the course)
+│   └── App.vue             # Main Vue application component
 
+## Installation
 
-## Create Project
+#### Clone the repository
+git clone https://github.com/TrueGeorgi/HotelRoom
 
-```
-npx degit simeon-petrov-5/softuni-vue-js-starter my-demo-app
-cd my-vitesse-app
-npm i
-```
+#### Navigate to the project directory
+cd HotelRoom
 
-## Development
-Just run and visit http://localhost:5174
+#### Install dependencies
+npm install
 
-```
+## Usage
+
+#### Run the development server
 npm run dev
-```
 
-## Georgi's notes:
-created by using mainly Options API
+## Dependencies
+
+  "dependencies": {
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
+    "axios": "^1.6.2",
+    "firebase": "^10.7.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^1.0.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.51.0",
+    "vite": "^4.4.5",
+    "vue-tsc": "^1.8.8"
+  }

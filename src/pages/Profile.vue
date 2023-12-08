@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       moneyOwed: 0,
-      username: ''
+      username: '',
+      userBookings: []
     }
   },
   methods: {
