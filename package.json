@@ -2,7 +2,7 @@
   "name": "softuni-vue-js-starter",
   "type": "module",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
