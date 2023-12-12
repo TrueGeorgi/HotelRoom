@@ -1,47 +1,51 @@
 <template>
-  <div>
-    <p>From</p>
-    <div>
-      <label for="monthFrom">Month</label>
-      <select id="monthFrom" v-model="monthFrom">
-        <option v-for="month in possibleMonths" :value="month.month">
-          {{ month.month }}
-        </option>
-      </select>
+  <div class="main-container">
+    <div class="from-container">
+      <p class="from-to">From:</p>
+      <div>
+        <label for="monthFrom">Month</label>
+        <select id="monthFrom" v-model="monthFrom">
+          <option v-for="month in possibleMonths" :value="month.month">
+            {{ month.month }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="dateFrom">Date</label>
+        <select id="dateFrom" v-model="dateFrom">
+          <option value="" disabled>
+            Select
+          </option>
+          <option v-for="num in getMonthsDates(monthFrom)" :value="num">
+            {{ num }}
+          </option>
+        </select>
+      </div>
     </div>
-    <div>
-      <label for="dateFrom">Date</label>
-      <select id="dateFrom" v-model="dateFrom">
-        <option value="" disabled>
-          Select
-        </option>
-        <option v-for="num in getMonthsDates(monthFrom)" :value="num">
-          {{ num }}
-        </option>
-      </select>
+    <div class="to-container">
+      <p class="from-to">To:</p>
+      <div>
+        <label for="monthTo">Month</label>
+        <select id="monthTo" v-model="monthTo">
+          <option v-for="month in possibleMonths" :value="month.month">
+            {{ month.month }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="dateTo">Date</label>
+        <select id="dateTo" v-model="dateTo">
+          <option value="" disabled>
+            Select
+          </option>
+          <option v-for="num in getMonthsDates(monthTo)" :value="num">
+            {{ num }}
+          </option>
+        </select>
+      </div>
     </div>
-    <p>To</p>
-    <div>
-      <label for="monthTo">Month</label>
-      <select id="monthTo" v-model="monthTo">
-        <option v-for="month in possibleMonths" :value="month.month">
-          {{ month.month }}
-        </option>
-      </select>
-    </div>
-    <div>
-      <label for="dateTo">Date</label>
-      <select id="dateTo" v-model="dateTo">
-        <option value="" disabled>
-          Select
-        </option>
-        <option v-for="num in getMonthsDates(monthTo)" :value="num">
-          {{ num }}
-        </option>
-      </select>
-    </div>
-    <button @click="calculateAndEmitPrice">Calculate days</button>
   </div>
+  <button @click="calculateAndEmitPrice">Calculate days</button>
 </template>
 
 <script>
@@ -111,6 +115,12 @@ export default {
       const indexTo = this.getMonthsIndex(this.monthTo);
 
       let days = 0;
+      if (this.monthFrom === this.monthTo) {
+        if (this.dateFrom >= this.dateTo) {
+          days = 365 - (this.dateFrom - this.dateTo);
+          return days
+        }
+      }
 
       if (indexFrom < indexTo) {
         for (let index = indexFrom + 1; index < indexTo; index++) {
@@ -137,4 +147,18 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.main-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+.from-to {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+</style>

@@ -38,7 +38,6 @@ body {
 }
 
 .main-box {
-  width: 1100px;
   margin: 0 auto;
   margin-top: 30px;
 }

@@ -2,11 +2,11 @@
   <div>
     <form action="" class="container" @submit.prevent="onSubmit">
       <div>
-        <label for="name">Hotel Name</label>
-        <input id="name" type="text" v-model.trim="name" placeholder="The name of your Hotel">
         <div class="input-errors" v-for="error of v$.name.$errors" :key="error.$uid">
-          <div class="error-msg">{{ error.$message }}</div>
+          <div class="error-msg">*{{ error.$message }}</div>
         </div>
+        <label for="name">*Hotel Name</label>
+        <input id="name" type="text" v-model.trim="name" placeholder="The name of your Hotel">
       </div>
       <div>
         <label>Country</label>
@@ -18,7 +18,10 @@
         </ul>
       </div>
       <div>
-        <label for="city">city</label>
+        <div class="input-errors" v-for="error of v$.hotelCity.$errors" :key="error.$uid">
+          <div class="error-msg">*{{ error.$message }}</div>
+        </div>
+        <label for="city">*city</label>
         <select id="city" v-model="hotelCity">
           <option value="" disabled>
             Select
@@ -27,16 +30,13 @@
             {{ city }}
           </option>
         </select>
-        <div class="input-errors" v-for="error of v$.hotelCity.$errors" :key="error.$uid">
-          <div class="error-msg">{{ error.$message }}</div>
-        </div>
       </div>
       <div>
-        <label for="price">price</label>
-        <input id="price" type="number" v-model="price" placeholder="0">
         <div class="input-errors" v-for="error of v$.price.$errors" :key="error.$uid">
-          <div class="error-msg">{{ error.$message }}</div>
+          <div class="error-msg">*{{ error.$message }}</div>
         </div>
+        <label for="price">*price</label>
+        <input id="price" type="number" v-model="price" placeholder="0">
       </div>
       <div>
         <label for="img">Image</label>
@@ -59,7 +59,7 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
+import { required, maxLength } from '@vuelidate/validators'
 import { useHotels } from '../store/hotels.js'
 import db from '../firebase'
 import { collection, doc, setDoc, query, getDocs, getDoc } from 'firebase/firestore'
@@ -104,7 +104,10 @@ export default {
   },
   validations() {
     return {
-      name: { required },
+      name: {
+        required,
+        maxLength: maxLength(36)
+      },
       hotelCity: { required },
       price: { required }
     }
@@ -173,4 +176,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.error-msg {
+  color: red;
+}
+</style>

@@ -1,19 +1,23 @@
 <template>
-  <div>
+  <div class="main-container">
+    <p class="hotel-name">{{ hotel.name }}</p>
     <img class="pic" :src="hotel.img" alt="Hotel picture">
-    <p>{{ hotel.name }}</p>
+    <div class="location">{{ hotel.city }}, {{ hotel.country }}</div>
+  </div>
+  <div>
     <div>
-      <div>
-        Info
+      <SelectDates @price-object="handleTotalPrice" :price="hotel.price" />
+    </div>
+    <div class="calculation-container" v-if="showButon">
+      <div class="inner-calculation-container">
+        <div class="total-cost-container">
+          <p class="total-cost">Total cost:</p>
+          <p class="total-cost-number"> {{ priceObject.totalPrice }} $ <span>on {{ hotel.price }}$ per night</span></p>
+        </div>
+        <p class="nights">Nights: {{ priceObject.nights }}</p>
+        <button class="book-it-button" @click="bookToProfile">Book it for {{ priceObject.totalPrice }}$</button>
+        <button class="cancel-button" @click="this.isCalculated = false">Cancel</button>
       </div>
-      <div>
-        <SelectDates @price-object="handleTotalPrice" :price="hotel.price" />
-      </div>
-      <div v-if="showButon">The total cost will be: {{ priceObject.totalPrice }} $. You are staying for {{
-        priceObject.nights }} nights on {{ hotel.price }}$ per night.
-      </div>
-      <button @click="bookToProfile" v-if="showButon">Book it for {{
-        priceObject.totalPrice }}$</button>
     </div>
   </div>
 </template>
@@ -86,6 +90,7 @@ export default {
       if (user) {
         const bookingName = `${this.hotel.name} - ${this.priceObject.user}`
         console.log(bookingName)
+        console.log(1)
         const bookingExist = await this.checkIfBookingExists(bookingName)
         if (bookingExist) {
           console.log(this.checkIfBookingExists(bookingName))
@@ -97,8 +102,12 @@ export default {
       }
     },
     async checkIfBookingExists(bookingName) {
-      const docRef = doc(db, 'yourCollection', bookingName);
+      console.log(2)
+      console.log(bookingName)
+      const docRef = doc(db, 'bookings', bookingName);
+      console.log(docRef)
       const docSnap = await getDoc(docRef);
+      console.log(docSnap.exists())
       return docSnap.exists();
     }
   }
@@ -106,8 +115,73 @@ export default {
 </script>
 
 <style scoped>
+span {
+  font-size: 14px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotel-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 30px 0px;
+}
+
 .pic {
   width: 250px;
   margin-left: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 7px;
+  margin-bottom: 15px;
+}
+
+.select-dates {
+  display: flex;
+  align-items: start;
+}
+
+.calculation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+.inner-calculation-container {
+  background-color: white;
+  padding: 100px 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  border-radius: 30px;
+}
+
+.total-cost-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.total-cost {
+  font-size: 28px;
+  margin: auto;
+  font-weight: bold;
+}
+
+.total-cost-number {
+  font-style: italic;
+}
+
+.cancel-button {
+  background-color: rgb(228, 89, 89);
 }
 </style>

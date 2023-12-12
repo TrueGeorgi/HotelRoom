@@ -1,13 +1,15 @@
 <template>
-  <header>
-    <Navbar />
-  </header>
+  <div id="app">
+    <header>
+      <Navbar />
+    </header>
 
-  <router-view />
+    <router-view />
 
-  <footer>
-    <Footer />
-  </footer>
+    <footer>
+      <Footer />
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -22,4 +24,18 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+router-view {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+</style>

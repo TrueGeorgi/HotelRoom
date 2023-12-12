@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>Welcome {{ username }}</p>
-    <p>You owe {{ moneyOwed }}$</p>
+    <p class="account-message">{{ username }}</p>
+    <p class="owe-amount">You owe {{ moneyOwed }}$</p>
     <button @click="loggOut">Sing out</button>
   </div>
 </template>
@@ -41,4 +41,27 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.account-message {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.owe-amount {
+  display: flex;
+  margin: auto;
+  width: 400px;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-style: italic;
+  background-color: rgb(226, 230, 233);
+  border-radius: 50px;
+}
+</style>

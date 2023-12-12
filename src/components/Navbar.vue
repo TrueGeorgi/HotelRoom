@@ -1,13 +1,13 @@
 <template>
   <nav>
     <p class="siteName">
-      <router-link to="/">
+      <router-link to="/" class="logo">
         <span class="logoHotel">Hotel</span><span class="logoRoom">Room</span>
       </router-link>
     </p>
     <ul>
       <li>
-        <router-link to="/hotels">
+        <router-link to="/hotels" class="hotels">
           Hotels
         </router-link>
       </li>
@@ -23,7 +23,7 @@
       </li>
       <li v-if="loggedUser">
         <router-link to="/profile">
-          Profile
+          <fa icon="user-circle" />
         </router-link>
       </li>
       <li v-if="!loggedUser">
@@ -35,6 +35,7 @@
         <router-link to="/register">
           Register
         </router-link>
+
       </li>
     </ul>
   </nav>
@@ -79,11 +80,23 @@ nav {
   padding: 20px;
 }
 
+.logo {
+  border-radius: 25px;
+  padding: 13px;
+  font-weight: bold;
+  transition: opacity 0.5s;
+}
+
 .logoHotel {
-  color: blue;
+  color: rgb(250, 113, 113);
+
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .logoRoom {
-  color: rgb(255, 81, 0);
+  color: rgb(115, 115, 250);
 }
 </style>

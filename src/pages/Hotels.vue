@@ -1,30 +1,36 @@
 <template>
-  <h4>Hotels: {{ numberOfRegisteredHotels }}</h4>
-  <div>
-    <label for="sortedCountry">Sort by country</label>
-    <select id="sortedCountry" v-model="sortedCountry">
-      <option disabled>
-        Select
-      </option>
-      <option v-for="country in hotels.possibleCountries" :value="country.name">
-        {{ country.name }}
-      </option>
-    </select>
-  </div>
-  <div>
-    <label for="sortedCity">Sort by city</label>
-    <select id="sortedCity" v-model="sortedCity">
-      <option disabled>
-        Select
-      </option>
-      <option v-for="city in filteredCities()" :value="city">
-        {{ city }}
-      </option>
-    </select>
-  </div>
-  <button v-if="isSorted" @click="showAllHotels()">Show all hotels</button>
-  <div v-for="hotel in this.sortedHotels" class="main-container">
-    <SingleHotelBlock :singleHotel="hotel" />
+  <div class="main-template">
+    <div class="sorting-container">
+      <div>
+        <label for="sortedCountry">Sort by country</label>
+        <select id="sortedCountry" v-model="sortedCountry">
+          <option disabled>
+            Select
+          </option>
+          <option v-for="country in hotels.possibleCountries" :value="country.name">
+            {{ country.name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="sortedCity">Sort by city</label>
+        <select id="sortedCity" v-model="sortedCity">
+          <option disabled>
+            Select
+          </option>
+          <option v-for="city in filteredCities()" :value="city">
+            {{ city }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <button class="show-all" v-if="isSorted" @click="showAllHotels()">Reset</button>
+      </div>
+    </div>
+    <h4 class="number-hotels">Hotels: {{ numberOfRegisteredHotels }}</h4>
+    <div v-for="hotel in this.sortedHotels" class="hotels-container">
+      <SingleHotelBlock class="hotel-container" :singleHotel="hotel" />
+    </div>
   </div>
 </template>
 
@@ -116,42 +122,34 @@ export default {
 </script>
 
 <style scoped>
-.name-raiting,
-.hotel-info,
-.price-book {
-  border: 1px solid rgb(180, 180, 180);
+.main-template {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.main-container,
-.general-info,
-.name-raiting,
-.hotel-info,
-.price-book {
+.sorting-container {
   display: flex;
-  flex: 1;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: end;
+  justify-content: center;
 }
 
-.general-info-container {
-  justify-content: space-between;
-  padding: 0 10px;
+.show-all {
+  width: 120px;
+  height: 63px;
+  padding: 2px;
 }
 
-.general-info {
-  flex-direction: column;
+.number-hotels {
+  border-bottom: 1px solid rgb(187, 183, 183);
 }
 
-.book-button {
-  width: 100px;
+.hotels-container {
+  margin-top: 20px;
 }
 
-img {
-  width: 200px;
-  height: 150px;
-  border-radius: 15px;
-}
-
-
-.main-container {
-  margin-bottom: 20px;
+.hotel-container {
+  border-bottom: 1px dotted rgb(0, 0, 0);
 }
 </style>

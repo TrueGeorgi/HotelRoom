@@ -53,10 +53,8 @@ export default {
 <style scoped>
 .grid-container {
   display: grid;
-  grid-template-columns: 550px 550px;
-}
-
-.main-container:nth-child(even) {
-  padding-left: 25px;
+  grid-template-columns: 630px 630px;
+  column-gap: 25px;
+  row-gap: 30px;
 }
 </style>

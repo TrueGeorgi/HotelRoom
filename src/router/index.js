@@ -24,8 +24,6 @@ const routes = [
   path: '/hotels/:id',
   name: 'hotel',
   component: SingleHotel
-  // -01:03:41 - този сегмент ще ми трябва, за да взема правилният хотел за букване по-късно.
-  // Чилдрен са на -43:30
 },
 {
   path: '/list-property',

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="email-container">
     <p>Email: georgi.iliev9191@gmail.com</p>
   </div>
 </template>
@@ -8,4 +8,13 @@
 
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.email-container {
+  margin: auto;
+}
+
+p {
+  font-size: 38px;
+  font-weight: bold;
+}
+</style>

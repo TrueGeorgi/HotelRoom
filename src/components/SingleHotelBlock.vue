@@ -1,24 +1,27 @@
 <template>
-  <div class="main-container">
-    <div class="hotel-pic">
+  <div class="hotel-container">
+    <div class="img-container">
       <img :src="singleHotel.img" :alt="singleHotel.name">
     </div>
-    <div class="general-info general-info-container">
-      <div class="name-raiting general-info-container">
-        <div>{{ singleHotel.name }}</div>
-        <div>Raiting:{{ singleHotel.raiting }} from {{ singleHotel.votes }} votes</div>
-      </div>
-      <div class="hotel-info general-info-container">
-        <div>Location: {{ singleHotel.city }}, {{ singleHotel.country }}</div>
-        <div>
-          <div v-for="facility in singleHotel.facilities">
-            {{ facility }}
+    <div class="info-container">
+      <div class="text-container">
+        <div class="name-loc-price-container">
+          <div class="hotel-name">{{ singleHotel.name }}</div>
+          <div class="hotel-location">{{ singleHotel.city }}, {{ singleHotel.country }}</div>
+          <div class="hotel-price">
+            {{ singleHotel.price }} $ <span class="text-in-hotel-price">per night</span>
+          </div>
+          <div class="button-container">
+            <button class="book-button" @click="goToHotelPage">Book</button>
           </div>
         </div>
-      </div>
-      <div class="price-book general-info-container">
-        <div>Price: {{ singleHotel.price }}$</div>
-        <button class="book-button" @click="goToHotelPage">Book</button>
+        <div class="rat-fac-container">
+          <div class="hotel-raiting">Raiting: {{ singleHotel.raiting }} from {{ singleHotel.votes }} votes</div>
+          <p>Facilities:</p>
+          <ul class="hotel-facilities">
+            <li v-for="facility in singleHotel.facilities">{{ facility }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -38,42 +41,88 @@ export default {
 </script>
 
 <style scoped>
-.name-raiting,
-.hotel-info,
-.price-book {
-  border: 1px solid rgb(180, 180, 180);
-}
-
-.main-container,
-.general-info,
-.name-raiting,
-.hotel-info,
-.price-book {
+.hotel-container,
+.text-container,
+.button-container {
   display: flex;
-  flex: 1;
+  flex-direction: row;
 }
 
-.general-info-container {
-  justify-content: space-between;
-  padding: 0 10px;
-}
-
-.general-info {
+.name-loc-price-container,
+.rat-fac-container {
+  display: flex;
   flex-direction: column;
 }
 
-.book-button {
-  width: 100px;
+.hotel-container {
+  column-gap: 20px;
+  align-items: top;
+}
+
+
+
+.text-container {
+
+  column-gap: 30px;
+  align-items: top;
+}
+
+.name-loc-price-container {
+  /* border: 1px solid black; */
+  row-gap: 10px;
+  align-items: top;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.rat-fac-container {
+  row-gap: 10px;
+}
+
+.hotel-name {
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.hotel-location {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.text-in-hotel-price {
+  font-size: 14px;
+}
+
+.hotel-raiting {
+  padding-bottom: 10px;
+  border-bottom: 1px dotted gray;
+}
+
+.hotel-facilities {
+  font-size: 16px;
 }
 
 img {
-  width: 200px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
 }
 
+.img-container {
+  width: 200px;
+  height: 150px;
+}
 
-.main-container {
-  margin-bottom: 20px;
+.info-container {
+  flex: 1;
+}
+
+.book-button {
+  margin-top: 10px;
+  width: 110px;
+}
+
+.book-button:active {
+  opacity: 0.5;
 }
 </style>

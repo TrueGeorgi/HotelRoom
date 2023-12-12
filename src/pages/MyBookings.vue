@@ -1,19 +1,20 @@
 <template>
-  <div v-if="userBookings.length > 0">
-    <ul>
-      <li v-for="booking in userBookings" :key="booking.name">
-        <div>
-          <img class="pic" :src="booking.data().img" alt="hotel pic">
-          <p>You have booked at the "{{ booking.data().name }}" for {{ booking.data().nights }} nights. You have to pay {{
-            booking.data().totalPrice }} $ for your stay.</p>
-        </div>
-        <button @click="deleteBooking(booking.id)">Delete this booking</button>
-
-      </li>
-    </ul>
+  <div class="main-container" v-if="userBookings.length > 0">
+    <div class="booking-container" v-for="booking in userBookings" :key="booking.name">
+      <div class="image-container">
+        <img class="pic" :src="booking.data().img" alt="hotel pic">
+      </div>
+      <div class="info-container">
+        <p class="hotel-name">{{ booking.data().name }}</p>
+        <p class="nihgts">Nights: {{ booking.data().nights }}</p>
+        <p class="total-amount">Total amount: <span class="amount">{{ booking.data().totalPrice }} $</span></p>
+        <button class="delete-button" @click="deleteBooking(booking.id)">Delete booking</button>
+      </div>
+    </div>
   </div>
-  <div v-else>
-    Such Empty
+  <div class="no-bookings" v-else>
+    You currently don't have any bookings.
+    <fa icon="sad-tear" />
   </div>
 </template>
 
@@ -73,7 +74,48 @@ export default {
 </script>
 
 <style scoped>
+.main-container {}
+
 .pic {
-  width: 250px;
+  width: 200px;
+  height: 150px;
+  border-radius: 10%;
+}
+
+.booking-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+  align-items: center;
+  justify-content: left;
+  border-bottom: 1px dotted black;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.hotel-name {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.total-amount {
+  font-style: oblique;
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.delete-button {
+  width: 210px;
+}
+
+.no-bookings {
+  margin: auto;
+  font-size: 34px;
 }
 </style>
