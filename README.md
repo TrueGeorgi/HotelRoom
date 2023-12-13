@@ -2,8 +2,6 @@
 
 A hotel booking website created as a final Project for the Vue.JS 3 course by https://softuni.bg/
 
-Give the website a try: https://truegeorgi.github.io/HotelRoom
-
 ## Introduction
 
 A hotel bookings website, where every registered user can :
