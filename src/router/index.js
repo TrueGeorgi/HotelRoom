@@ -59,7 +59,11 @@ const routes = [
 {
   path: '/profile',
   component: Profile
-}
+},
+{
+  path: '/HotelRoom',
+  redirect: '/',
+},
 ];
 
 const router = createRouter({
