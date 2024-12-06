@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCoIDges9G-L-bCTpM7mPjyKYiYxku6MRw",
-  authDomain: "hotel-room-486a8.firebaseapp.com",
-  projectId: "hotel-room-486a8",
-  storageBucket: "hotel-room-486a8.appspot.com",
-  messagingSenderId: "951781063316",
-  appId: "1:951781063316:web:e7702796a289df6cbcd281"
+  apiKey: "XXXXXXX",
+  authDomain: "XXXXXX",
+  projectId: "XXXXX",
+  storageBucket: "XXXXXX",
+  messagingSenderId: "XXXXXX",
+  appId: "XXXXXXX"
 };
 
 // Initialize Firebase
